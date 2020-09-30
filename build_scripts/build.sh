@@ -50,7 +50,7 @@ sed -i '/^override_install_langs=/d' /etc/yum.conf
 # Decided not to clean at this point: https://github.com/pypa/manylinux/pull/129
 yum -y update
 yum -y install yum-utils curl
-yum-config-manager --enable extras
+yum config-manager --enable extras
 
 if ! which localedef &> /dev/null; then
     # somebody messed up glibc-common package to squeeze image size, reinstall the package
@@ -58,7 +58,7 @@ if ! which localedef &> /dev/null; then
 fi
 
 # upgrading glibc-common can end with removal on en_US.UTF-8 locale
-#localedef -i en_US -f UTF-8 en_US.UTF-8
+localedef -i en_US -f UTF-8 en_US.UTF-8
 
 # Development tools and libraries
 yum -y install \

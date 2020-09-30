@@ -84,8 +84,8 @@ yum -y install \
     ${PYTHON_COMPILE_DEPS}
 
 wget https://cmake.org/files/v3.15/cmake-3.15.0.tar.gz
-tar zxf cmake-3.*
-cd cmake-3.*
+tar zxf cmake-3.15.0.tar.gz
+cd cmake-3.15.0
 ./bootstrap --prefix=/usr/local
 make -j$(nproc)
 make install

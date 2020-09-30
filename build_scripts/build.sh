@@ -83,11 +83,11 @@ yum -y install \
     ${YASM} \
     ${PYTHON_COMPILE_DEPS}
 
-wget https://cmake.org/files/v3.15/cmake-3.15.0.tar.gz && \
-tar zxvf cmake-3.* && \
-cd cmake-3.* && \
-./bootstrap --prefix=/usr/local && \
-make -j$(nproc) && \
+wget https://cmake.org/files/v3.15/cmake-3.15.0.tar.gz
+tar zxf cmake-3.*
+cd cmake-3.*
+./bootstrap --prefix=/usr/local
+make -j$(nproc)
 make install
 
 # Compile the latest Python releases.

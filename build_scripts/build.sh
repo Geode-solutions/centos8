@@ -83,13 +83,6 @@ yum -y install \
     ${YASM} \
     ${PYTHON_COMPILE_DEPS}
 
-wget https://cmake.org/files/v3.15/cmake-3.15.0.tar.gz
-tar zxf cmake-3.15.0.tar.gz
-cd cmake-3.15.0
-./bootstrap --prefix=/usr/local
-make -j$(nproc)
-make install
-
 # Compile the latest Python releases.
 # (In order to have a proper SSL module, Python is compiled
 # against a recent openssl [see env vars above], which is linked
@@ -181,3 +174,11 @@ build-locale-archive
 find /usr/share/locale -mindepth 1 -maxdepth 1 -not \( -name 'en*' -or -name 'locale.alias' \) | xargs rm -rf
 find /usr/local/share/locale -mindepth 1 -maxdepth 1 -not \( -name 'en*' -or -name 'locale.alias' \) | xargs rm -rf
 rm -rf /usr/local/share/man
+
+
+wget https://cmake.org/files/v3.15/cmake-3.15.0.tar.gz
+tar zxf cmake-3.15.0.tar.gz
+cd cmake-3.15.0
+./bootstrap --prefix=/usr/local
+make -j$(nproc)
+make install

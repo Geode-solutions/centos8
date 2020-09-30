@@ -63,6 +63,9 @@ localedef -i en_US -f UTF-8 en_US.UTF-8
 
 # Development tools and libraries
 yum -y install \
+    git \
+    gcc \
+    gcc-c++ \
     autoconf \
     automake \
     bison \
@@ -78,22 +81,6 @@ yum -y install \
     which \
     ${YASM} \
     ${PYTHON_COMPILE_DEPS}
-
-# Install git
-build_git $GIT_ROOT $GIT_HASH
-git version
-
-# Install newest automake
-build_automake $AUTOMAKE_ROOT $AUTOMAKE_HASH
-automake --version
-
-# Install newest libtool
-build_libtool $LIBTOOL_ROOT $LIBTOOL_HASH
-libtool --version
-
-
-# Install libcrypt.so.1 and libcrypt.so.2
-build_libxcrypt "$LIBXCRYPT_DOWNLOAD_URL" "$LIBXCRYPT_VERSION" "$LIBXCRYPT_HASH"
 
 # Compile the latest Python releases.
 # (In order to have a proper SSL module, Python is compiled

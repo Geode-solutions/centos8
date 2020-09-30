@@ -54,7 +54,8 @@ yum config-manager --enable extras
 
 if ! which localedef &> /dev/null; then
     # somebody messed up glibc-common package to squeeze image size, reinstall the package
-    yum -y reinstall glibc-common glibc-locale-source glibc-langpack-en
+    yum -y reinstall glibc-common
+    yum -y install glibc-locale-source glibc-langpack-en
 fi
 
 # upgrading glibc-common can end with removal on en_US.UTF-8 locale

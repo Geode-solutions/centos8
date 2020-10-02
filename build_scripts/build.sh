@@ -117,18 +117,6 @@ deactivate
 # Install patchelf (latest with unreleased bug fixes) and apply our patches
 build_patchelf $PATCHELF_VERSION $PATCHELF_HASH
 
-# Clean up development headers and other unnecessary stuff for
-# final image
-yum -y erase \
-    avahi \
-    bitstream-vera-fonts \
-    freetype \
-    gettext \
-    gtk2 \
-    hicolor-icon-theme \
-    libX11 \
-    wireless-tools \
-    ${PYTHON_COMPILE_DEPS} > /dev/null 2>&1
 yum -y install ${MANYLINUX_DEPS}
 yum -y clean all > /dev/null 2>&1
 yum list installed

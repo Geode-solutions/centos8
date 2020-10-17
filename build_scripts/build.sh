@@ -60,6 +60,7 @@ fi
 
 # upgrading glibc-common can end with removal on en_US.UTF-8 locale
 localedef -i en_US -f UTF-8 en_US.UTF-8
+curl -sL https://rpm.nodesource.com/setup_12.x | bash -
 
 # Development tools and libraries
 yum -y install \
@@ -67,6 +68,7 @@ yum -y install \
     gcc \
     gcc-c++ \
     wget \
+    nodejs \
     autoconf \
     automake \
     bison \

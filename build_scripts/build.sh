@@ -91,7 +91,8 @@ cd openssl-OpenSSL_1_1_1c
 ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl no-shared zlib
 make
 make install
-ls /usr/local/openssl
+echo "pathmunge /usr/local/openssl/bin" > /etc/profile.d/openssl.sh
+source /etc/profile.d/openssl.sh
 cd ..
 
 # Compile the latest Python releases.

@@ -85,6 +85,14 @@ yum -y install \
     ${YASM} \
     ${PYTHON_COMPILE_DEPS}
 
+curl -O -L https://github.com/openssl/openssl/archive/OpenSSL_1_1_1c.tar.gz
+tar -zxvf OpenSSL_1_1_1c.tar.gz
+cd openssl-OpenSSL_1_1_1c
+./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl no-shared zlib pic
+make
+make install
+ls /usr/local/openssl
+
 # Compile the latest Python releases.
 # (In order to have a proper SSL module, Python is compiled
 # against a recent openssl [see env vars above], which is linked
@@ -112,13 +120,6 @@ ln -s $TOOLS_PATH/bin/auditwheel /usr/local/bin/auditwheel
 ln -s $(python -c 'import certifi; print(certifi.where())') /opt/_internal/certs.pem
 # If you modify this line you also have to modify the versions in the Dockerfiles:
 export SSL_CERT_FILE=/opt/_internal/certs.pem
-curl -O -L https://github.com/openssl/openssl/archive/OpenSSL_1_1_1c.tar.gz
-tar -zxvf OpenSSL_1_1_1c.tar.gz
-cd openssl-OpenSSL_1_1_1c
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl no-shared zlib pic
-make
-make install
-ls /usr/local/openssl
 
 # Deactivate the tools virtual environment
 deactivate

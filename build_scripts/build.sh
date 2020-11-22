@@ -10,7 +10,7 @@ MY_DIR=$(dirname "${BASH_SOURCE[0]}")
 
 # Dependencies for compiling Python that we want to remove from
 # the final image after compiling Python
-PYTHON_COMPILE_DEPS="zlib-devel bzip2-devel expat-devel ncurses-devel readline-devel tk-devel gdbm-devel libdb-devel xz-devel openssl-devel openssl-static keyutils-libs-devel krb5-devel libcom_err-devel curl-devel perl-devel"
+PYTHON_COMPILE_DEPS="zlib-devel libtool bzip2-devel expat-devel ncurses-devel readline-devel tk-devel gdbm-devel libdb-devel xz-devel keyutils-libs-devel krb5-devel libcom_err-devel curl-devel perl-devel"
 
 # Libraries that are allowed as part of the manylinux2014 profile
 # Extract from PEP: https://www.python.org/dev/peps/pep-0599/#the-manylinux2014-policy
@@ -112,6 +112,13 @@ ln -s $TOOLS_PATH/bin/auditwheel /usr/local/bin/auditwheel
 ln -s $(python -c 'import certifi; print(certifi.where())') /opt/_internal/certs.pem
 # If you modify this line you also have to modify the versions in the Dockerfiles:
 export SSL_CERT_FILE=/opt/_internal/certs.pem
+curl -O -L https://github.com/openssl/openssl/archive/OpenSSL_1_1_1c.tar.gz
+tar -zxvf OpenSSL_1_1_1c.tar.gz
+cd openssl-OpenSSL_1_1_1c
+./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl no-shared zlib pic
+make
+make install
+ls /usr/local/openssl
 
 # Deactivate the tools virtual environment
 deactivate

@@ -92,6 +92,7 @@ cd openssl-OpenSSL_1_1_1c
 make
 make install
 ls /usr/local/openssl
+cd ..
 
 # Compile the latest Python releases.
 # (In order to have a proper SSL module, Python is compiled

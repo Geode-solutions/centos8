@@ -91,7 +91,7 @@ cd openssl-OpenSSL_1_1_1c
 ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl no-shared zlib
 make
 make install
-echo "pathmunge /usr/local/openssl/bin" > /etc/profile.d/openssl.sh
+echo "export PATH=/usr/local/openssl/bin:$PATH" > /etc/profile.d/openssl.sh
 source /etc/profile.d/openssl.sh
 cd ..
 

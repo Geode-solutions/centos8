@@ -88,7 +88,7 @@ yum -y install \
 curl -O -L https://github.com/openssl/openssl/archive/OpenSSL_1_1_1c.tar.gz
 tar -zxvf OpenSSL_1_1_1c.tar.gz
 cd openssl-OpenSSL_1_1_1c
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl no-shared zlib
+./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl no-shared no-zlib
 make
 make install
 ls /usr/local/openssl

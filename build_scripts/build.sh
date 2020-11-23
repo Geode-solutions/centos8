@@ -92,13 +92,13 @@ cd openssl-OpenSSL_1_1_1c
 make
 make install
 ls /usr/local/openssl
-#echo "export PATH=/usr/local/openssl/bin:$PATH" > /etc/profile.d/openssl.sh
+echo "export PATH=/usr/local/openssl/bin:$PATH" > /etc/profile.d/openssl.sh
 ls /usr/local/openssl/bin
-#source /etc/profile.d/openssl.sh
+source /etc/profile.d/openssl.sh
 ls /usr/local/openssl/lib
 openssl version
-#echo "/usr/local/openssl/lib" > /etc/ld.so.conf.d/openssl-1.1.1c.conf
-#ldconfig -v
+echo "/usr/local/openssl/lib" > /etc/ld.so.conf.d/openssl-1.1.1c.conf
+ldconfig -v
 cd ..
 
 # Compile the latest Python releases.

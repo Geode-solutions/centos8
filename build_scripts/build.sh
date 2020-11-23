@@ -10,7 +10,7 @@ MY_DIR=$(dirname "${BASH_SOURCE[0]}")
 
 # Dependencies for compiling Python that we want to remove from
 # the final image after compiling Python
-PYTHON_COMPILE_DEPS="zlib-devel openssl openssl-libs libtool bzip2-devel expat-devel ncurses-devel readline-devel tk-devel gdbm-devel libdb-devel xz-devel keyutils-libs-devel krb5-devel libcom_err-devel curl-devel perl-devel"
+PYTHON_COMPILE_DEPS="zlib-devel openssl-devel libtool bzip2-devel expat-devel ncurses-devel readline-devel tk-devel gdbm-devel libdb-devel xz-devel keyutils-libs-devel krb5-devel libcom_err-devel curl-devel perl-devel"
 
 # Libraries that are allowed as part of the manylinux2014 profile
 # Extract from PEP: https://www.python.org/dev/peps/pep-0599/#the-manylinux2014-policy

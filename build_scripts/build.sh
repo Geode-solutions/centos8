@@ -182,9 +182,9 @@ find /usr/local/share/locale -mindepth 1 -maxdepth 1 -not \( -name 'en*' -or -na
 rm -rf /usr/local/share/man
 
 
-wget https://cmake.org/files/v3.15/cmake-3.15.0.tar.gz
-tar zxf cmake-3.15.0.tar.gz
-cd cmake-3.15.0
+wget https://cmake.org/files/v3.15/cmake-3.15.7.tar.gz
+tar zxf cmake-3.15.7.tar.gz
+cd cmake-3.15.7
 ./bootstrap --prefix=/usr/local
 make -j$(nproc)
 make install
